@@ -41,12 +41,12 @@ extension UIView {
     }
     
     public func animateFadeIn(duration: Double = 0.3, alphaIn: CGFloat = 0, alphaOut: CGFloat = 1, _ completion:(() -> Void)? = nil) {
-        DispatchQueue.main.async {
-            self.isHidden = false
-            self.alpha = alphaIn
+        DispatchQueue.main.async { [weak self] in
+            self?.isHidden = false
+            self?.alpha = alphaIn
             
-            UIView.animate(withDuration: duration, animations: {
-                self.alpha = alphaOut
+            UIView.animate(withDuration: duration, animations: { [weak self] in
+                self?.alpha = alphaOut
             }, completion: { (didComplete) in
                 completion?()
             })
