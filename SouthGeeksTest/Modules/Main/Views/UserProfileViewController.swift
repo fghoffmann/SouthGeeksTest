@@ -25,9 +25,6 @@ class UserProfileViewController: ExpandingTableViewController {
     
     // MARK: - Actions
     @IBAction func onBackButtonTap(_: AnyObject) {
-        
-        let _: [UserProfileViewController?] = navigationController?.viewControllers.map { $0 as? UserProfileViewController } ?? []
-        
         popTransitionAnimation()
     }
 }
@@ -38,6 +35,9 @@ extension UserProfileViewController {
     fileprivate func setupView() {
         configureNavBar()
         registerCells()
+        let gradientView = GradientView(frame: tableView.frame)
+        gradientView.addGradientLayer(.gradient1, middle: .gradient2, bottomColor: .gradient3)
+        tableView.backgroundView = gradientView
         tableView.contentInsetAdjustmentBehavior = .never
     }
     
@@ -60,7 +60,7 @@ extension UserProfileViewController {
 extension UserProfileViewController {
 
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.y < -25 , let _ = navigationController {
+        if scrollView.contentOffset.y < -30 , let _ = navigationController {
             popTransitionAnimation()
         }
     }

@@ -18,5 +18,8 @@ extension UIColor {
     static var textDark: UIColor { return UIColor(named: "textDarkColor") ?? .black }
     static var textLight: UIColor { return UIColor(named: "textLightColor") ?? .black }
     static var background: UIColor { return UIColor(named: "backgroundColor") ?? .black }
+    static var gradient1: UIColor { return UIColor(named: "gradien1Color") ?? .black }
+    static var gradient2: UIColor { return UIColor(named: "gradien2Color") ?? .black }
+    static var gradient3: UIColor { return UIColor(named: "gradien3Color") ?? .black }
     
 }
