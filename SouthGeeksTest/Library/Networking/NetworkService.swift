@@ -1,48 +1,58 @@
 //
-//  NetworkService.swift
-//  SearchApp
+//  SouthGeeksTestTests.swift
+//  SouthGeeksTestTests
 //
-//  Created by Leonardo Vinicius Kaminski Ferreira on 18/03/20.
-//  Copyright © 2020 Leonardo. All rights reserved.
+//  Created by Fabio Gustavo Hoffmann on 14/08/2020.
+//  Copyright © 2020 FabioGustavoHoffmann. All rights reserved.
 //
 
 import Foundation
-import Combine
 
-class NetworkService {
-    private let session: URLSession
-    
-    init(session: URLSession = .shared) {
-        self.session = session
-    }
+protocol NetworkServiceProtocol {
+    func fetchData<T : Decodable>(url:String, type:T.Type, force:Bool, completion: @escaping (_ response: T?,_ error: Error?) -> Void)
 }
 
-// MARK: - NetworkService Request
-
-extension NetworkService {
-    
-    func request<T>(with components: URLComponents,
-                    method: RequestMethod = .GET,
-                    headers: [String: String]? = nil,
-                    body: Data? = nil) -> AnyPublisher<T, GenericError> where T: Decodable {
-        guard let url = components.url else {
-            let error = GenericError.network(description: "Couldn't create URL")
-            return Fail(error: error).eraseToAnyPublisher()
+class NetworkService: Cache, NetworkServiceProtocol  {
+    func fetchData<T : Decodable>(url urlString:String,
+                                  type:T.Type,
+                                  force:Bool = false,
+                                  completion: @escaping (_ response: T?,_ error: Error?) -> Void){
+        
+        var haveCache = false
+        let decoder = JSONDecoder()
+        
+        if !force, let data = dataFromCache(urlString) {
+            haveCache = true
+            
+            if let json = try? decoder.decode(type, from: data) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    completion(json, nil)
+                }
+            }else{
+                completion(nil, NSError(domain: "some error", code: -1, userInfo: nil))
+            }
         }
         
-        var request = URLRequest(url: url)
-        request.httpMethod = method.rawValue
-        _ = headers?.map({ request.addValue($0.value, forHTTPHeaderField: $0.key) })
-        request.httpBody = body
-        
-        return session.dataTaskPublisher(for: request)
-            .mapError { error in
-                .network(description: error.localizedDescription)
-            }
-            .flatMap(maxPublishers: .max(1)) { pair in
-                decode(pair.data)
-            }
-            .eraseToAnyPublisher()
+        if let url = URL(string: urlString) {
+            URLSession.shared.dataTask(with: url) { (data, response, err) in
+                
+                guard err == nil && data != nil else {
+                    completion(nil, err)
+                    return
+                }
+                
+                if let data = data {
+                    self.saveToCache(urlString, data: data)
+                    if haveCache { return }
+                    if let json = try? decoder.decode(type, from: data) {
+                        completion(json, nil)
+                    }else{
+                        completion(nil, NSError(domain: "some error", code: -1, userInfo: nil))
+                    }
+                }
+            }.resume()
+        }else{
+            completion(nil, NSError(domain: "URL malformed", code: -1, userInfo: nil))
+        }
     }
 }
-

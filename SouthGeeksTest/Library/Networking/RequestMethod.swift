@@ -1,14 +1,14 @@
 //
-//  RequestMethod.swift
-//  SearchApp
+//  SouthGeeksTestTests.swift
+//  SouthGeeksTestTests
 //
-//  Created by Leonardo Vinicius Kaminski Ferreira on 20/03/20.
-//  Copyright © 2020 Leonardo. All rights reserved.
+//  Created by Fabio Gustavo Hoffmann on 14/08/2020.
+//  Copyright © 2020 FabioGustavoHoffmann. All rights reserved.
 //
 
 import Foundation
 
-enum RequestMethod: String {
+public enum RequestMethod: String {
     case GET
     case POST
     case PUT
