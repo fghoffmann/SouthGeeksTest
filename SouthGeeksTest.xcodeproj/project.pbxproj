@@ -49,7 +49,6 @@
 		874FDC5B24EA112100C52CEE /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874FDC5724EA112100C52CEE /* RequestMethod.swift */; };
 		87FB8C2D24E975C2005F393C /* UIImage+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FB8C2C24E975C2005F393C /* UIImage+Utilities.swift */; };
 		87FB8C3024E976E3005F393C /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FB8C2F24E976E3005F393C /* GradientView.swift */; };
-		87FB8C3824E98337005F393C /* AnimatingBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FB8C3724E98337005F393C /* AnimatingBarButton.swift */; };
 		87FB8C3A24E98383005F393C /* Rotatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FB8C3924E98383005F393C /* Rotatable.swift */; };
 		87FB8C3F24E9A6F4005F393C /* UserProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FB8C3D24E9A6F4005F393C /* UserProfileTableViewCell.swift */; };
 		87FB8C4024E9A6F4005F393C /* UserProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87FB8C3E24E9A6F4005F393C /* UserProfileTableViewCell.xib */; };
@@ -128,7 +127,6 @@
 		874FDC5724EA112100C52CEE /* RequestMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
 		87FB8C2C24E975C2005F393C /* UIImage+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Utilities.swift"; sourceTree = "<group>"; };
 		87FB8C2F24E976E3005F393C /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		87FB8C3724E98337005F393C /* AnimatingBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatingBarButton.swift; sourceTree = "<group>"; };
 		87FB8C3924E98383005F393C /* Rotatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rotatable.swift; sourceTree = "<group>"; };
 		87FB8C3D24E9A6F4005F393C /* UserProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTableViewCell.swift; sourceTree = "<group>"; };
 		87FB8C3E24E9A6F4005F393C /* UserProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileTableViewCell.xib; sourceTree = "<group>"; };
@@ -408,7 +406,6 @@
 		87FB8C3624E98324005F393C /* Button */ = {
 			isa = PBXGroup;
 			children = (
-				87FB8C3724E98337005F393C /* AnimatingBarButton.swift */,
 				87FB8C3924E98383005F393C /* Rotatable.swift */,
 			);
 			path = Button;
@@ -678,7 +675,6 @@
 				874A7D8F24E856A10041EFB1 /* UIImageView+Utilities.swift in Sources */,
 				874A7D8824E852EC0041EFB1 /* UIViewExtensions.swift in Sources */,
 				87FB8C3F24E9A6F4005F393C /* UserProfileTableViewCell.swift in Sources */,
-				87FB8C3824E98337005F393C /* AnimatingBarButton.swift in Sources */,
 				874A7DB224E8BE2C0041EFB1 /* Constraints.swift in Sources */,
 				874A7DB024E8BDD50041EFB1 /* PageCollectionView.swift in Sources */,
 				874A7DA524E888E60041EFB1 /* ExpandingViewController.swift in Sources */,

@@ -60,8 +60,6 @@ extension MainCollectionViewController {
     fileprivate func getViewController(withUser user: User?) -> UserProfileViewController {
         let vc = UserProfileViewController()
         vc.user = user
-        vc.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: vc, action: #selector(UserProfileViewController.onBackButtonTap))
-        vc.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         return vc
     }
     
@@ -90,10 +88,6 @@ extension MainCollectionViewController {
         // double swipe Up transition
         if cell.isOpened == true && sender.direction == .up {
             pushToViewController(getViewController(withUser: viewModel?.userForRowInSection(indexPath)))
-
-            if let rightButton = navigationItem.rightBarButtonItem as? AnimatingBarButton {
-                rightButton.animationSelected(true)
-            }
         } else if !cell.isOpened && sender.direction == .up {
             cell.animateIn()
         }
@@ -138,10 +132,6 @@ extension MainCollectionViewController {
             cell.animateIn()
         } else {
             pushToViewController(getViewController(withUser: viewModel?.userForRowInSection(indexPath)))
-
-            if let rightButton = navigationItem.rightBarButtonItem as? AnimatingBarButton {
-                rightButton.animationSelected(true)
-            }
         }
         
         viewModel?.setCellIsOpen(for: indexPath, isOpen: cell.isOpened)

@@ -11,7 +11,6 @@ import UIKit
 class UserProfileViewController: ExpandingTableViewController {
 
     // MARK: - Lifecycle
-    fileprivate var scrollOffsetY: CGFloat = 0
     var user: User?
     
     // MARK: - Lifecycle
@@ -19,17 +18,16 @@ class UserProfileViewController: ExpandingTableViewController {
         super.viewDidLoad()
         setupView()
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
     
     // MARK: - Actions
     @IBAction func onBackButtonTap(_: AnyObject) {
         
-        let viewControllers: [UserProfileViewController?] = navigationController?.viewControllers.map { $0 as? UserProfileViewController } ?? []
-
-        for viewController in viewControllers {
-            if let rightButton = viewController?.navigationItem.rightBarButtonItem as? AnimatingBarButton {
-                rightButton.animationSelected(false)
-            }
-        }
+        let _: [UserProfileViewController?] = navigationController?.viewControllers.map { $0 as? UserProfileViewController } ?? []
+        
         popTransitionAnimation()
     }
 }
@@ -40,7 +38,6 @@ extension UserProfileViewController {
     fileprivate func setupView() {
         configureNavBar()
         registerCells()
-        
         tableView.contentInsetAdjustmentBehavior = .never
     }
     
@@ -52,7 +49,9 @@ extension UserProfileViewController {
     }
     
     fileprivate func configureNavBar() {
-        //navigationItem.rightBarButtonItem?.image = navigationItem.rightBarButtonItem?.image!.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(UserProfileViewController.onBackButtonTap))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.rightBarButtonItem?.image = navigationItem.rightBarButtonItem?.image!.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
     }
     
 }
@@ -61,16 +60,9 @@ extension UserProfileViewController {
 extension UserProfileViewController {
 
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.y < -25 , let navigationController = navigationController {
-            // buttonAnimation
-            for case let viewController as UserProfileViewController in navigationController.viewControllers {
-                if case let rightButton as AnimatingBarButton = viewController.navigationItem.rightBarButtonItem {
-                    rightButton.animationSelected(false)
-                }
-            }
+        if scrollView.contentOffset.y < -25 , let _ = navigationController {
             popTransitionAnimation()
         }
-        scrollOffsetY = scrollView.contentOffset.y
     }
 }
 
