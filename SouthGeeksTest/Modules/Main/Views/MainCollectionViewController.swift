@@ -26,6 +26,12 @@ class MainCollectionViewController: ExpandingViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        let views: [UserCollectionViewCell?] = self.view.subviews.map { $0 as? UserCollectionViewCell }
+        for view in views {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                view?.removeFromSuperview()
+            }
+        }
     }
     
     // MARK: - Methods

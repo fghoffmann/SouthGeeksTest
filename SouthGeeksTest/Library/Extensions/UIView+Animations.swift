@@ -11,17 +11,17 @@ import UIKit
 extension UIView {
     
     public func animateShowPopingUp(duration: Double = 0.4, scaleIn: CGFloat = 0.1, scaleOut: CGFloat = 1.05, alphaIn: CGFloat = 0, alphaOut: CGFloat = 1, _ completion:(() -> Void)? = nil){
-        DispatchQueue.main.async {
-            self.isHidden = false
-            self.alpha = alphaIn
-            self.transform = CGAffineTransform(scaleX: scaleIn, y: scaleIn)
+        DispatchQueue.main.async { [weak self] in
+            self?.isHidden = false
+            self?.alpha = alphaIn
+            self?.transform = CGAffineTransform(scaleX: scaleIn, y: scaleIn)
             
-            UIView.animate(withDuration: duration*0.7, animations: {
-                self.transform = CGAffineTransform(scaleX: scaleOut, y: scaleOut)
-                self.alpha = alphaOut
-            }, completion: { (didComplete) in
-                UIView.animate(withDuration: duration*0.3, animations: {
-                    self.transform = CGAffineTransform(scaleX: 1, y: 1)
+            UIView.animate(withDuration: duration*0.7, animations: { [weak self] in
+                self?.transform = CGAffineTransform(scaleX: scaleOut, y: scaleOut)
+                self?.alpha = alphaOut
+            }, completion: { [weak self] (didComplete) in
+                UIView.animate(withDuration: duration*0.3, animations: { [weak self] in
+                    self?.transform = CGAffineTransform(scaleX: 1, y: 1)
                 }, completion: { (didComplete) in
                     completion?()
                 })

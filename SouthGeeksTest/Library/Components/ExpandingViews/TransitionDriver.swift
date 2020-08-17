@@ -71,12 +71,12 @@ extension TransitionDriver {
         copyView.center = view.center
 
         // constraints animation
-        UIView.animate(withDuration: duration, delay: 0, options: UIView.AnimationOptions(), animations: {
-            self.view.layoutIfNeeded()
-            self.backImageView?.alpha = 1
-            self.copyCell?.shadowView?.alpha = 0
+        UIView.animate(withDuration: duration, delay: 0, options: UIView.AnimationOptions(), animations: { [weak self] in
+            self?.view.layoutIfNeeded()
+            self?.backImageView?.alpha = 1
+            self?.copyCell?.shadowView?.alpha = 0
             copyView.frontContainerView.subviewsForEach { if $0.tag == Constants.HideKey { $0.alpha = 0 } }
-        }, completion: { _ in
+        }, completion: { [weak self] _ in
             let data = NSKeyedArchiver.archivedData(withRootObject: copyView.frontContainerView!)
             guard case let headerView as UIView = NSKeyedUnarchiver.unarchiveObject(with: data) else {
                 fatalError("must copy")

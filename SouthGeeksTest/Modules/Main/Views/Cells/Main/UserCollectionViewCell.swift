@@ -78,9 +78,9 @@ class UserCollectionViewCell: BasePageCollectionCell {
     }
     
     func animateIn() {
-        bronzeImageView.animateShowPopingUp(duration: 0.6, scaleOut: 1.2)
-        silverImageView.animateShowPopingUp(duration: 0.8, scaleOut: 1.2)
-        goldImageView.animateShowPopingUp(duration: 1.1, scaleOut: 1.6)
+        bronzeImageView.animateShowPopingUp(duration: 0.4, scaleOut: 1.2)
+        silverImageView.animateShowPopingUp(duration: 0.6, scaleOut: 1.2)
+        goldImageView.animateShowPopingUp(duration: 0.8, scaleOut: 1.6)
     }
     
     func setAsLoadingCell() {
