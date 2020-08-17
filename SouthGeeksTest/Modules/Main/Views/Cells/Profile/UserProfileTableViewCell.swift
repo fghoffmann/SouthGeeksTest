@@ -35,8 +35,8 @@ class UserProfileTableViewCell: UITableViewCell {
     func setData(withUser user: User?) {
         guard let user = user else { return }
         
-        nameLabel.text = user.name
-        locationLabel.text = user.location
+        nameLabel.text = user.name?.attributedHtmlString?.string
+        locationLabel.text = user.location?.attributedHtmlString?.string
         reputationLabel.text = "\(user.reputation ?? 0)"
         goldLabel.text = "\(user.badges?.gold ?? 0)"
         silverLabel.text = "\(user.badges?.silver ?? 0)"

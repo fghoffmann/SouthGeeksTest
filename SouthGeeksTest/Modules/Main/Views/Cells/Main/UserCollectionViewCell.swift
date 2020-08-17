@@ -61,8 +61,8 @@ class UserCollectionViewCell: BasePageCollectionCell {
         self.cellIsOpen(isOpen, animated: false)
         
         loading = false
-        nameLabel.text = user.name
-        locationLabel.text = user.location
+        nameLabel.text = user.name?.attributedHtmlString?.string
+        locationLabel.text = user.location?.attributedHtmlString?.string
         goldLabel.text = "\(user.badges?.gold ?? 0)"
         silverLabel.text = "\(user.badges?.silver ?? 0)"
         bronzeLabel.text = "\(user.badges?.bronze ?? 0)"
