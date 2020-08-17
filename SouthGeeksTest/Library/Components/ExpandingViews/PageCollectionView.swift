@@ -11,7 +11,7 @@ import UIKit
 class PageCollectionView: UICollectionView {
 }
 
-// MARK: init
+// MARK: - Init
 
 extension PageCollectionView {
 

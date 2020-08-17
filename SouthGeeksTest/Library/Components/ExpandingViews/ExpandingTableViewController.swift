@@ -11,7 +11,7 @@ import UIKit
 open class ExpandingTableViewController: UITableViewController {
 
     // MARK: - Variables
-    open var headerHeight: CGFloat = 236
+    open var headerHeight: CGFloat = 360
     var transitionDriver: TransitionDriver?
 }
 
@@ -30,9 +30,10 @@ extension ExpandingTableViewController {
             return 0
         }
 
+        let keyWindow = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
         let insets = tableView.contentInsetAdjustmentBehavior == .automatic
         let tabBarHeight = insets == true ? navigationController.navigationBar.frame.size.height : 0
-        let stausBarHeight = insets == true ? UIApplication.shared.statusBarFrame.size.height : 0
+        let stausBarHeight = insets == true ? keyWindow?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0 : 0
         return tabBarHeight + stausBarHeight
     }
 }

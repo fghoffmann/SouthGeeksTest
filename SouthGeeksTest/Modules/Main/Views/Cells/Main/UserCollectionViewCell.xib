@@ -148,7 +148,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7M-Bf-ZfY">
-                                <rect key="frame" x="20" y="308.5" width="216" height="16.5"/>
+                                <rect key="frame" x="20" y="297.5" width="216" height="16.5"/>
                                 <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="14"/>
                                 <color key="textColor" name="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -164,8 +164,8 @@
                             <constraint firstItem="a7M-Bf-ZfY" firstAttribute="leading" secondItem="Ysm-aY-LrI" secondAttribute="leading" constant="20" id="R9d-HL-6Fi"/>
                             <constraint firstItem="FgV-9W-Pex" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ysm-aY-LrI" secondAttribute="leading" constant="20" id="UnU-9q-Q8u"/>
                             <constraint firstItem="2OY-ha-q7w" firstAttribute="centerX" secondItem="Ysm-aY-LrI" secondAttribute="centerX" id="WWh-E8-Mbg"/>
+                            <constraint firstItem="a7M-Bf-ZfY" firstAttribute="top" secondItem="FgV-9W-Pex" secondAttribute="bottom" constant="100" id="Wru-0K-bVT"/>
                             <constraint firstAttribute="trailing" secondItem="HQf-qn-9Tn" secondAttribute="trailing" id="X4n-EG-A7M"/>
-                            <constraint firstAttribute="bottom" secondItem="a7M-Bf-ZfY" secondAttribute="bottom" constant="10" id="Zn7-S0-Q2h"/>
                             <constraint firstAttribute="trailing" secondItem="2OY-ha-q7w" secondAttribute="trailing" constant="60" id="c2S-bi-Mgq"/>
                             <constraint firstItem="FgV-9W-Pex" firstAttribute="centerX" secondItem="Ysm-aY-LrI" secondAttribute="centerX" id="glK-3P-CT0"/>
                             <constraint firstItem="2OY-ha-q7w" firstAttribute="top" secondItem="Ysm-aY-LrI" secondAttribute="top" constant="30" id="hZs-pT-BHE"/>

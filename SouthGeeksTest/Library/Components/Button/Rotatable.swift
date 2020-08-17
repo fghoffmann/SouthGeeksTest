@@ -9,7 +9,6 @@
 import UIKit
 
 protocol Rotatable {
-
     func rotateAnimationFrom(_ fromItem: UIView, toItem: UIView, duration: Double)
 }
 

@@ -28,8 +28,7 @@ class AnimatingBarButton: UIBarButtonItem, Rotatable {
     let selectedView = UIImageView(frame: .zero)
 }
 
-// MARK: life cicle
-
+// MARK: - Lifecycle
 extension AnimatingBarButton {
 
     override func awakeFromNib() {
@@ -40,8 +39,7 @@ extension AnimatingBarButton {
     }
 }
 
-// MARK: public
-
+// MARK: - Public
 extension AnimatingBarButton {
 
     func animationSelected(_ selected: Bool) {
@@ -53,8 +51,7 @@ extension AnimatingBarButton {
     }
 }
 
-// MARK: Create
-
+// MARK: - Create
 extension AnimatingBarButton {
 
     fileprivate func configurateImageViews() {

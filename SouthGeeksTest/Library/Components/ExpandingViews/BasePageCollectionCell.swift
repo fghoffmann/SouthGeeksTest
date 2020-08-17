@@ -50,8 +50,7 @@ open class BasePageCollectionCell: UICollectionViewCell {
     }
 }
 
-// MARK: life cicle
-
+// MARK: - Lifecycle
 extension BasePageCollectionCell {
 
     open override func awakeFromNib() {
@@ -66,8 +65,7 @@ extension BasePageCollectionCell {
     }
 }
 
-// MARK: Control
-
+// MARK: - Control
 extension BasePageCollectionCell {
 
     public func cellIsOpen(_ isOpen: Bool, animated: Bool = true) {
@@ -109,8 +107,7 @@ extension BasePageCollectionCell {
     }
 }
 
-// MARK: Configuration
-
+// MARK: - Configuration
 extension BasePageCollectionCell {
 
     fileprivate func configurationViews() {
@@ -161,7 +158,6 @@ extension BasePageCollectionCell {
             }
         }
 
-        // size shadow
         let width = shadow.getConstraint(.width)?.constant
         let height = shadow.getConstraint(.height)?.constant
 
@@ -184,7 +180,6 @@ extension BasePageCollectionCell {
 }
 
 // MARK: - NSCoding
-
 extension BasePageCollectionCell {
 
     fileprivate func highlightedImageFalseOnView(_ view: UIView) {

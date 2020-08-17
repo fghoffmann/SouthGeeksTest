@@ -27,21 +27,4 @@ class Cache {
         }
     }
     
-//    func process(data: Data?, error: ErrorData?, response: @escaping (ErrorData?) -> Void) {
-//        if let jsonObject = data {
-//            let questError = QuestErrorMP.parseQuestErrorFrom(jsonObject)
-//            if questError.count > 0 {
-//                response(ErrorData(.generic, "An error occurred during your request."))
-//            } else {
-//                response(nil)
-//            }
-//        } else {
-//            if let error = error {
-//                response(error)
-//                return
-//            }
-//            response(ErrorData(.unknown, "response Data could not be parsed"))
-//        }
-//    }
-
 }

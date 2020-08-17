@@ -29,7 +29,7 @@ open class ExpandingViewController: UIViewController {
         return Int(a / b)
     }
     
-    // MARK: - Life cicle
+    // MARK: - Lifecicle
     open override func viewDidLoad() {
         super.viewDidLoad()
         commonInit()

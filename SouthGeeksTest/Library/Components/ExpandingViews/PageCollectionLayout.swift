@@ -133,8 +133,7 @@ extension PageCollectionLayout {
     }
 }
 
-// MARK: helpers
-
+// MARK: Helpers
 extension PageCollectionLayout {
 
     fileprivate func configureInset() {

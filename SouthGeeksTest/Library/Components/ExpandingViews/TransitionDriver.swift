@@ -117,7 +117,7 @@ extension TransitionDriver {
     }
 }
 
-// MARK: Helpers
+// MARK: - Helpers
 
 extension TransitionDriver {
 
@@ -194,7 +194,7 @@ extension TransitionDriver {
     }
 }
 
-// MARK: animations
+// MARK: - Animations
 
 extension TransitionDriver {
 

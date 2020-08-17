@@ -68,7 +68,7 @@ class UserCollectionViewCell: BasePageCollectionCell {
         bronzeLabel.text = "\(user.badges?.bronze ?? 0)"
         avatarImageView.setImage(user.profileImage,
                                  placeholder: nil,
-                                 forHeight: 50) { [weak self] (avatar) in
+                                 forHeight: 100) { [weak self] (avatar) in
             guard let avatar = avatar else {
                 self?.avatarImageView.image = UIImage(systemName: "person.fill")
                 return

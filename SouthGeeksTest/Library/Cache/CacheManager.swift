@@ -62,7 +62,6 @@ public class CacheManager: NSObject {
     }
     
     // MARK: - Instance methods
-    
     public static func cache(_ data: Data, forKey key: String) {
         CoreCache(key: key, value: data).save()
     }
@@ -78,7 +77,6 @@ public class CacheManager: NSObject {
 }
 
 // MARK: - Requester methods
-
 extension CacheManager {
     
     public static func verifyForCache(urlRequest: URL, method: RequestMethod, body: String?) -> Data? {
@@ -108,7 +106,6 @@ extension CacheManager {
     }
     
     // MARK: - Helpers
-    
     private static func buildURLCacheKey(_ url: URL?,
                                          method: RequestMethod?,
                                          bodyData: String?) -> String {
